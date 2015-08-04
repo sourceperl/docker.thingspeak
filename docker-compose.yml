@@ -1,0 +1,13 @@
+mysql:
+  image: mysql:5.5
+  environment:
+    MYSQL_ROOT_PASSWORD: rootpwd
+  ports:
+    - "3306"
+web:
+  build: .
+  command: bundle exec rails server -p 3000
+  ports:
+    - "3000:3000"
+  links:
+    - mysql
