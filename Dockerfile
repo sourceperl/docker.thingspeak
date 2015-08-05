@@ -21,6 +21,7 @@ ADD database.yml config/database.yml
 # add user thingspeak to image
 RUN groupadd -r thingspeak && useradd -r -g thingspeak thingspeak
 RUN chown -R thingspeak /opt/thingspeak
+RUN chgrp -R thingspeak /opt/thingspeak
 
 # process run as thingspeak user
 USER thingspeak
